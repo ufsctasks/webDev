@@ -14,7 +14,7 @@ class user(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     deleted_at = models.DateTimeField(auto_now_add=True)
     donation_value = models.IntegerField(default=0)
-    member_matricula = models.BigIntegerField(max_length=20)
+    member_matricula = models.BigIntegerField(default=0)
 
     #perminssions
 
@@ -26,7 +26,6 @@ class user(models.Model):
 
 class member(user):
     member_id = models.CharField(max_length=100)
-    member_matricula = models.BigIntegerField(max_length=20)
     #perminssions
 
     events_allowed = models.BooleanField(default=True)
@@ -35,7 +34,7 @@ class member(user):
     def __str__(self):
         return self.name
 
-class visitors(models.Model)
+class visitors(models.Model):
     visitor_id = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     deleted_at = models.DateTimeField(auto_now_add=True)
