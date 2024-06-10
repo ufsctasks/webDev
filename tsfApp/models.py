@@ -84,3 +84,13 @@ class events(models.Model):
 
     def __str__(self):
         return self.event_name
+
+class donations(models.Model):
+    donation_id = models.CharField(max_length=100)
+    donation_user = models.ForeignKey(user, on_delete=models.CASCADE)
+    donation_value = models.IntegerField()
+    donation_created_at = models.DateTimeField(auto_now_add=True)
+    donation_deleted_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.donation_id
