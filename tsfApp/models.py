@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.query import NamedValuesListIterable
 
 # Create your models here.
 
@@ -21,22 +22,65 @@ class user(models.Model):
     donation_allowed = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.phone
+        return self.name
 
 class member(user):
     member_id = models.CharField(max_length=100)
+    member_matricula = models.BigIntegerField(max_length=20)
     #perminssions
 
     events_allowed = models.BooleanField(default=True)
     settings_allowed = models.BooleanField(default=False)
 
+    def __str__(self):
+        return self.name
+
 class visitors(models.Model)
     visitor_id = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
+    deleted_at = models.DateTimeField(auto_now_add=True)
 
     #perminssions
 
     donation_allowed = models.BooleanField(default=True)
-
+    def __str__(self):
+        return self.visitor_id
 
 #backend funcionalities model
+
+class comments(models.Model):
+    comment_id = models.CharField(max_length=100)
+    comment_user = models.ForeignKey(user, on_delete=models.CASCADE)
+    comment_text = models.TextField()
+    comment_created_at = models.DateTimeField(auto_now_add=True)
+    comment_deleted_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.comment_id
+class posts(models.Model):
+    post_id = models.CharField(max_length=100)
+    post_user = models.ForeignKey(user, on_delete=models.CASCADE)
+    post_text = models.TextField()
+    post_image = models.ImageField(upload_to='post_images')
+    post_comments = models.ForeignKey(comments, on_delete=models.CASCADE)
+    post_created_at = models.DateTimeField(auto_now_add=True)
+    post_deleted_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.post_id
+
+class events(models.Model):
+    event_id = models.CharField(max_length=100)
+    event_name = models.CharField(max_length=100)
+    event_description = models.TextField()
+    event_date = models.DateTimeField(auto_now_add=True)
+    event_location = models.CharField(max_length=100)
+    event_image = models.ImageField(upload_to='event_images')
+    envent_user = models.ForeignKey(user, on_delete=models.CASCADE)
+    event_comments = models.ForeignKey(comments, on_delete=models.CASCADE)
+    event_created_at = models.DateTimeField(auto_now_add=True)
+    event_deleted_at = models.DateTimeField(auto_now_add=True)
+    event_hours_value = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.event_name
