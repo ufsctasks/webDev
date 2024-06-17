@@ -14,6 +14,22 @@ def home(request):
 
     return render(request, 'home.html')
 
-def login(request):
+def sobre(request):
 
-    return render(request, 'login.html')
+    return render(request, 'sobre.html')
+
+def eventos(request):
+
+    return render(request, 'eventos.html')
+
+def guia(request):
+
+    return render(request, 'guia.html')
+
+def prj(request):
+
+    return render(request, 'prj.html')
+
+def voluntariado(request):
+
+    return render(request, 'voluntariado.html')
