@@ -33,3 +33,7 @@ def prj(request):
 def voluntariado(request):
 
     return render(request, 'voluntariado.html')
+
+
+def custom_404_view(request, exception=None):
+    return HttpResponseNotFound(render(request, '404.html'))
