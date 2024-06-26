@@ -34,6 +34,13 @@ def voluntariado(request):
 
     return render(request, 'voluntariado.html')
 
+def login(request):
+
+    return render(request, 'login.html')
+
 
 def custom_404_view(request, exception=None):
     return HttpResponseNotFound(render(request, '404.html'))
+
+def test_500_view(request):
+    raise Exception("Testing 500 error page")
