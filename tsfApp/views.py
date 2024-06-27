@@ -38,6 +38,7 @@ def login(request):
 
     return render(request, 'login.html')
 
+#   Errors views
 
 def custom_404_view(request, exception=None):
     return HttpResponseNotFound(render(request, '404.html'))
