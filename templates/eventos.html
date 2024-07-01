@@ -17,24 +17,26 @@
 
     <body>
         <nav
-            class="navbar navbar-expand-md fixed-top bg-body py-3"
             id="menu"
+            class="navbar navbar-expand-md sticky-top bg-body py-3"
             style="width: 100%; overflow-x: hidden"
         >
             <div class="container">
-                <a class="navbar-brand d-flex align-items-center" href="\"
+                <a
+                    class="navbar-brand d-flex align-items-center"
+                    href="home.html"
                     ><span
                         class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon"
                         style="background: #ffffff80"
                         ><img
-                            src="assets/img/Técnica%20sem%20Fronteiras%20LOGO%201%20(Traced).png"
+                            src="Técnica sem Fronteiras LOGO 1 (Traced).png"
                             style="width: auto; height: 24px" /><svg
+                            class="bi bi-bezier"
                             xmlns="http://www.w3.org/2000/svg"
                             width="1em"
                             height="1em"
                             fill="currentColor"
                             viewBox="0 0 16 16"
-                            class="bi bi-bezier"
                         >
                             <path
                                 fill-rule="evenodd"
@@ -45,60 +47,60 @@
                             ></path></svg></span
                     ><span style="color: #005236">TsF Brasil</span></a
                 ><button
-                    data-bs-toggle="collapse"
-                    class="navbar-toggler"
-                    data-bs-target="#navcol-1"
                     id="mobile_menu"
+                    class="navbar-toggler"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navcol-1"
                 >
                     <span class="visually-hidden">Toggle navigation</span
                     ><span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navcol-1">
+                <div id="navcol-1" class="collapse navbar-collapse">
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item" id="sobre">
+                        <li id="sobre" class="nav-item">
                             <a
                                 class="nav-link"
-                                href="\sobre"
+                                href="sobre.html"
                                 style="color: #005236"
                                 >Sobre Nós</a
                             >
                         </li>
-                        <li class="nav-item" id="prj">
+                        <li id="prj" class="nav-item">
                             <a
                                 class="nav-link"
-                                href="\prj"
+                                href="prj.html"
                                 style="color: #005236"
                                 >Projetos</a
                             >
                         </li>
-                        <li class="nav-item" id="eventos">
+                        <li id="eventos" class="nav-item">
                             <a
                                 class="nav-link active"
-                                href="\guia"
+                                href="guia.html"
                                 style="color: #005236; font-weight: bold"
                                 >Eventos</a
                             >
                         </li>
-                        <li class="nav-item" id="voluntariado">
+                        <li id="voluntariado" class="nav-item">
                             <a
                                 class="nav-link"
-                                href="\voluntariado"
+                                href="voluntariado.html"
                                 style="color: #005236"
                                 >Voluntariado</a
                             >
                         </li>
-                        <li class="nav-item" id="guia">
+                        <li id="guia" class="nav-item">
                             <a
                                 class="nav-link"
-                                href="\guia"
+                                href="guia.html"
                                 style="color: #005236"
-                                >Guia Ambiental&nbsp;</a
+                                >Guia Ambiental </a
                             >
                         </li>
                     </ul>
                     <button
-                        class="btn btn-primary"
                         id="login"
+                        class="btn btn-primary"
                         type="button"
                         style="background: #005236"
                     >
@@ -107,7 +109,62 @@
                 </div>
             </div>
         </nav>
+
         <section class="py-4 py-xl-5">
+            {% for eventos in event %}
+            <div class="container">
+                <div
+                    class="bg-dark border rounded border-0 border-dark overflow-hidden"
+                >
+                    <div class="row g-0">
+                        <div
+                            class="col-md-6"
+                            style="background: var(--bs-tertiary-bg)"
+                        >
+                            <div
+                                class="text-white p-4 p-md-5"
+                                style="background: #f8f7ed"
+                            >
+                                <h2 class="fw-bold mb-3">
+                                    <a href=""> {{eventos.event_name}}</a>
+                                </h2>
+
+                                <p
+                                    class="mb-4"
+                                    style="color: var(--bs-emphasis-color)"
+                                >
+                                    {{eventos.event_description}}
+                                </p>
+                                <div
+                                    class="d-sm-flex justify-content-sm-center my-3"
+                                >
+                                    <a
+                                        class="btn btn-primary btn-lg me-2"
+                                        role="button"
+                                        href="#"
+                                        style="
+                                            background: #005236;
+                                            width: 281px;
+                                            border-style: none;
+                                        "
+                                        >Button</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="col-md-6 order-first order-md-last"
+                            style="min-height: 250px"
+                        >
+                            <img
+                                class="w-100 h-100 fit-cover"
+                                {{eventos.event_image}}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
             <section class="position-relative py-4 py-xl-5"></section>
             <div class="container">
                 <div

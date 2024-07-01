@@ -3,7 +3,6 @@ from django.http import HttpResponse
 from .models import user
 from .models import member
 from .models import visitor
-from .models import comment
 from .models import post
 from .models import event
 from .models import donation
@@ -20,15 +19,15 @@ def sobre(request):
     return render(request, 'sobre.html')
 
 def eventos(request):
-    event = event.objects.all()
-    return render(request, 'eventos.html')
+    eventos = event.objects.all()
+    return render(request, 'eventos.html', {'eventos': eventos})
 
 def guia(request):
 
     return render(request, 'guia.html')
 
 def prj(request):
-    project = project.objects.all()
+
     return render(request, 'prj.html')
 
 def voluntariado(request):
