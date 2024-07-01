@@ -101,7 +101,8 @@ class donation(models.Model):
 class project(models.Model):
     project_id = models.CharField(max_length=100)
     project_name = models.CharField(max_length=100)
-    project_description = models.TextField()
+    project_description = models.TextField(default='Default project text')
+    project_text = models.TextField(default='Default project text')
     project_image = models.ImageField(upload_to='project_images')
     #project_comments = models.ForeignKey(comment, on_delete=models.CASCADE)
     project_created_at = models.DateTimeField(auto_now_add=True)

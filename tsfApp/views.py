@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
 from .models import user
 from .models import member
 from .models import visitor
@@ -19,7 +20,7 @@ def sobre(request):
     return render(request, 'sobre.html')
 
 def eventos(request):
-    eventos = event.objects.all()
+    eventos   = event.objects.all()
     return render(request, 'eventos.html', {'eventos': eventos})
 
 def guia(request):
@@ -27,8 +28,9 @@ def guia(request):
     return render(request, 'guia.html')
 
 def prj(request):
+    projetos   = project.objects.all()
 
-    return render(request, 'prj.html')
+    return render(request, 'prj.html', {'projetos': projetos})
 
 def voluntariado(request):
 
@@ -45,6 +47,12 @@ def register(request):
 def recovery(request):
     email = request.POST.get('email')
     return render(request, 'recovery.html')
+
+
+def projeto_detail(request, projeto_id):
+    projeto = get_object_or_404(project, id=projeto_id)
+    return render(request, 'estufa.html', {'projeto': projeto})
+
 
 #   Errors views
 
