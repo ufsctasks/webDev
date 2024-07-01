@@ -7,6 +7,7 @@ from .models import comment
 from .models import post
 from .models import event
 from .models import donation
+from .models import project
 
 # Create your views here.
 
@@ -19,7 +20,7 @@ def sobre(request):
     return render(request, 'sobre.html')
 
 def eventos(request):
-
+    event = event.objects.all()
     return render(request, 'eventos.html')
 
 def guia(request):
@@ -27,7 +28,7 @@ def guia(request):
     return render(request, 'guia.html')
 
 def prj(request):
-
+    project = project.objects.all()
     return render(request, 'prj.html')
 
 def voluntariado(request):
@@ -37,6 +38,14 @@ def voluntariado(request):
 def login(request):
 
     return render(request, 'login.html')
+
+def register(request):
+    username = request.POST.get('username')
+    return render(request, 'register.html')
+
+def recovery(request):
+    email = request.POST.get('email')
+    return render(request, 'recovery.html')
 
 #   Errors views
 

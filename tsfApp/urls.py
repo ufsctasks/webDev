@@ -11,6 +11,8 @@ urlpatterns = [
     path('prj/', views.prj, name='prj'),
     path('voluntariado/', views.voluntariado, name='voluntariado'),
     path('login/', views.login, name='login'),
+    path('register/', views.register, name='register'),
+    path('recovery/', views.recovery, name='recovery'),
     path('test_500_view/', views.test_500_view, name='test_500_view'),
 ]
 
