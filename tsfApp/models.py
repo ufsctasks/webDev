@@ -62,6 +62,7 @@ class visitor(models.Model):
 class post(models.Model):
     post_id = models.CharField(max_length=100)
     post_user = models.ForeignKey(user, on_delete=models.CASCADE)
+    post_name = models.CharField(max_length=100, default='Default project text')
     post_text = models.TextField()
     post_image = models.ImageField(upload_to='post_images')
     #post_comments = models.ForeignKey(comment, on_delete=models.CASCADE)

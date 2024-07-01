@@ -14,7 +14,7 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('recovery/', views.recovery, name='recovery'),
     path('test_500_view/', views.test_500_view, name='test_500_view'),
-    path('projetos/<int:projeto_id>/', views.projeto_detail, name='projetos_detail'),
+    path('prj/<int:projeto_id>/', views.projeto_detail, name='projetos_detail'),
 ]
 
 handler404 = 'tsfApp.views.custom_404_view'

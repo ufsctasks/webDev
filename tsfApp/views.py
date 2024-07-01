@@ -25,7 +25,9 @@ def eventos(request):
 
 def guia(request):
 
-    return render(request, 'guia.html')
+    posts = post.objects.all()
+
+    return render(request, 'guia.html', {'posts': posts})
 
 def prj(request):
     projetos   = project.objects.all()
@@ -51,7 +53,7 @@ def recovery(request):
 
 def projeto_detail(request, projeto_id):
     projeto = get_object_or_404(project, id=projeto_id)
-    return render(request, 'estufa.html', {'projeto': projeto})
+    return render(request, 'projeto_detail.html', {'projeto': projeto})
 
 
 #   Errors views
