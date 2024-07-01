@@ -22,9 +22,7 @@
             style="width: 100%; overflow-x: hidden"
         >
             <div class="container">
-                <a
-                    class="navbar-brand d-flex align-items-center"
-                    href="home.html"
+                <a class="navbar-brand d-flex align-items-center" href="/"
                     ><span
                         class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon"
                         style="background: #ffffff80"
@@ -60,7 +58,7 @@
                         <li id="sobre" class="nav-item">
                             <a
                                 class="nav-link"
-                                href="sobre.html"
+                                href="/sobre"
                                 style="color: #005236"
                                 >Sobre Nós</a
                             >
@@ -68,7 +66,7 @@
                         <li id="prj" class="nav-item">
                             <a
                                 class="nav-link"
-                                href="prj.html"
+                                href="/prj"
                                 style="color: #005236"
                                 >Projetos</a
                             >
@@ -76,7 +74,7 @@
                         <li id="eventos" class="nav-item">
                             <a
                                 class="nav-link active"
-                                href="guia.html"
+                                href="/eventos"
                                 style="color: #005236; font-weight: bold"
                                 >Eventos</a
                             >
@@ -84,7 +82,7 @@
                         <li id="voluntariado" class="nav-item">
                             <a
                                 class="nav-link"
-                                href="voluntariado.html"
+                                href="/voluntariado"
                                 style="color: #005236"
                                 >Voluntariado</a
                             >
@@ -92,7 +90,7 @@
                         <li id="guia" class="nav-item">
                             <a
                                 class="nav-link"
-                                href="guia.html"
+                                href="/guia"
                                 style="color: #005236"
                                 >Guia Ambiental </a
                             >
@@ -111,7 +109,7 @@
         </nav>
 
         <section class="py-4 py-xl-5">
-            {% for eventos in event %}
+            {% for event in eventos %}
             <div class="container">
                 <div
                     class="bg-dark border rounded border-0 border-dark overflow-hidden"
@@ -125,15 +123,15 @@
                                 class="text-white p-4 p-md-5"
                                 style="background: #f8f7ed"
                             >
-                                <h2 class="fw-bold mb-3">
-                                    <a href=""> {{eventos.event_name}}</a>
+                                <h2 class="fw-bold mb-3" style="color: #005236">
+                                    <a> {{event.event_name}}</a>
                                 </h2>
 
                                 <p
                                     class="mb-4"
                                     style="color: var(--bs-emphasis-color)"
                                 >
-                                    {{eventos.event_description}}
+                                    {{event.event_description}}
                                 </p>
                                 <div
                                     class="d-sm-flex justify-content-sm-center my-3"
@@ -158,7 +156,7 @@
                         >
                             <img
                                 class="w-100 h-100 fit-cover"
-                                {{eventos.event_image}}
+                                {{event.event_image}}
                             />
                         </div>
                     </div>
