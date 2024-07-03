@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.contrib.auth.models import User, auth
+from django.contrib import messages
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from .models import user
@@ -43,8 +45,28 @@ def login(request):
     return render(request, 'login.html')
 
 def register(request):
-    username = request.POST.get('username')
-    return render(request, 'register.html')
+    if request.method == 'POST':
+        username = request.POST['username']
+        email = request.POST['email']
+        password = request.POST['password']
+        password2 = request.POST['password']
+
+        if password == password2:
+            if User.object.filter(email=email).exists():
+                messages.info(request, 'Email ja esta sendo usado')
+                return redirect('register')
+            elif User.object.filter(username=username).exists():
+                messages.info(request, 'Nome de usuario ja esta sendo usado')
+                return redirect('register')
+            else:
+                user = User.objects.create_user(username=username, email=email, password=password)
+                user.save();
+                return redirect('login')
+        else:
+            messages.info(request, 'Senhas nao sao equivalentes')
+            return redirect('login')
+    else:
+        return render(request, 'register.html')
 
 def recovery(request):
     email = request.POST.get('email')

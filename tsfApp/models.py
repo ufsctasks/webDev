@@ -16,6 +16,8 @@ class user(models.Model):
     donation_value = models.IntegerField(default=0)
     member_matricula = models.BigIntegerField(default=0)
 
+    objects = models.Manager()
+
     #perminssions
 
     comments_allowed = models.BooleanField(default=False)
@@ -68,6 +70,7 @@ class post(models.Model):
     #post_comments = models.ForeignKey(comment, on_delete=models.CASCADE)
     post_created_at = models.DateTimeField(auto_now_add=True)
     post_deleted_at = models.DateTimeField(auto_now_add=True)
+    objects = models.Manager()
 
     def __str__(self):
         return self.post_id
@@ -85,6 +88,9 @@ class event(models.Model):
     event_deleted_at = models.DateTimeField(auto_now_add=True)
     event_hours_value = models.IntegerField(default=0)
 
+    objects = models.Manager()
+
+
     def __str__(self):
         return self.event_name
 
@@ -94,6 +100,8 @@ class donation(models.Model):
     donation_value = models.IntegerField()
     donation_created_at = models.DateTimeField(auto_now_add=True)
     donation_deleted_at = models.DateTimeField(auto_now_add=True)
+    objects = models.Manager()
+
 
     def __str__(self):
         return self.donation_id
@@ -108,6 +116,8 @@ class project(models.Model):
     #project_comments = models.ForeignKey(comment, on_delete=models.CASCADE)
     project_created_at = models.DateTimeField(auto_now_add=True)
     project_deleted_at = models.DateTimeField(auto_now_add=True)
+    objects = models.Manager()
+
 
     def __str__(self):
         return self.project_name

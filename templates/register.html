@@ -119,19 +119,25 @@
                             >
                         </li>
                     </ul>
-                    <button
-                        id="login"
+                    <a
                         class="btn btn-primary"
-                        type="button"
+                        href="/login"
                         style="background: #005236; border-style: none"
-                    >
-                        Log in
-                    </button>
+                        >Log in
+                    </a>
                 </div>
             </div>
         </nav>
         <div class="register-container">
             <h2 class="text-center">Register</h2>
+            <style>
+                h5 {
+                    color: red;
+                }
+            </style>
+            {% for message in messages %}
+            <h5>{{message}}</h5>
+            {% endfor %}
             <form method="post">
                 {% csrf_token %}
                 <div class="form-group">

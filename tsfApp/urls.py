@@ -14,6 +14,7 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('recovery/', views.recovery, name='recovery'),
     path('test_500_view/', views.test_500_view, name='test_500_view'),
+    path('custom_404_view', views.custom_404_view, name='custom_404_view'),
     path('prj/<int:projeto_id>/', views.projeto_detail, name='projetos_detail'),
 ]
 
