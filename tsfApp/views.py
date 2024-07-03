@@ -91,6 +91,12 @@ def projeto_detail(request, projeto_id):
     return render(request, 'projeto_detail.html', {'projeto': projeto})
 
 
+def logout(request):
+
+    auth.logout(request)
+    return redirect('/')
+
+
 #   Errors views
 
 def custom_404_view(request, exception=None):

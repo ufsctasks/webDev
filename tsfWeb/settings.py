@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'tsfApp',
 ]
 
+LOGOUT_REDIRECT_URL = '/logout/'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
