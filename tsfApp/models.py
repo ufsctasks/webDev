@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 from django.db.models.query import NamedValuesListIterable
 
 # Create your models here.
@@ -26,7 +27,7 @@ class user(models.Model):
     def __str__(self):
         return self.name
 
-class member(user):
+class member(User):
     member_id = models.CharField(max_length=100)
     #perminssions
 
@@ -34,7 +35,7 @@ class member(user):
     settings_allowed = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.name
+        return self.username
 
 class visitor(models.Model):
     visitor_id = models.CharField(max_length=100)
