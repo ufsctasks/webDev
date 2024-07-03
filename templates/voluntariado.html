@@ -99,12 +99,21 @@
                             >
                         </li>
                     </ul>
+                    {% if user.is_authenticated == False %}
                     <a
                         class="btn btn-primary"
                         href="/login"
                         style="background: #005236; border-style: none"
                         >Log in
                     </a>
+                    {% else %}
+                    <a
+                        class="btn btn-primary"
+                        href="/logout"
+                        style="background: #005236; border-style: none"
+                        >Log out
+                    </a>
+                    {% endif %}
                 </div>
             </div>
         </nav>

@@ -28,7 +28,7 @@ class user(models.Model):
         return self.name
 
 class member(User):
-    member_id = models.CharField(max_length=100)
+    member_id = models.CharField(max_length=100, default = '0')
     #perminssions
 
     events_allowed = models.BooleanField(default=True)
@@ -83,7 +83,7 @@ class event(models.Model):
     event_date = models.DateTimeField(auto_now_add=True)
     event_location = models.CharField(max_length=100)
     event_image = models.ImageField(upload_to='event_images')
-    envent_user = models.ForeignKey(user, on_delete=models.CASCADE)
+    envent_user = models.ForeignKey(user, on_delete=models.CASCADE, default = 0)
     #event_comments = models.ForeignKey(comment, on_delete=models.CASCADE)
     event_created_at = models.DateTimeField(auto_now_add=True)
     event_deleted_at = models.DateTimeField(auto_now_add=True)
