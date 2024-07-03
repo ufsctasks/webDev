@@ -62,10 +62,11 @@ def register(request):
             else:
                 user = User.objects.create_user(username=username, email=email, password=password)
                 user.save();
+                messages.info(request, 'Usuario criado com sucesso!')
                 return redirect('login')
         else:
             messages.info(request, 'Senhas nao sao equivalentes')
-            return redirect('login')
+            return redirect('register')
     else:
         return render(request, 'register.html')
 

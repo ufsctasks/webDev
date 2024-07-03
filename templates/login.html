@@ -130,6 +130,14 @@
         </nav>
         <div class="login-container">
             <h2 class="text-center">Login</h2>
+            <style>
+                h8 {
+                    color: green;
+                }
+            </style>
+            {% for message in messages %}
+            <h8>{{message}}</h8>
+            {% endfor %}
             <form method="post">
                 {% csrf_token %}
                 <div class="form-group">

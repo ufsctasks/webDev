@@ -131,12 +131,12 @@
         <div class="register-container">
             <h2 class="text-center">Register</h2>
             <style>
-                h5 {
+                h8 {
                     color: red;
                 }
             </style>
             {% for message in messages %}
-            <h5>{{message}}</h5>
+            <h8>{{message}}</h8>
             {% endfor %}
             <form method="POST">
                 {% csrf_token %}
