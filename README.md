@@ -9,6 +9,8 @@ Este projeto foi desenvolvido com o intuito de cumprir o pré-requisito principa
 ## Ferramentas Utilizadas
 
 - **Django**: Framework de desenvolvimento web para Python.
+-> pip install django-braces.
+
 - **Bootstrap**: Biblioteca front-end para design responsivo e desenvolvimento ágil.
 
 ## Participantes
