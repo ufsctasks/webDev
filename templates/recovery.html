@@ -11,15 +11,13 @@
         <title>Recover Password</title>
         <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
         <style>
-            body {
-                font-family: Arial, sans-serif;
+            .x {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                height: 100vh;
-                background-color: #f8f9fa;
+                padding-top: 100px;
             }
-            .recovery-container {
+            .register-container {
                 background: #ffffff;
                 padding: 20px;
                 border-radius: 8px;
@@ -50,7 +48,7 @@
                         class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon"
                         style="background: #ffffff80"
                         ><img
-                            src="Técnica sem Fronteiras LOGO 1 (Traced).png"
+                            src="{% static '/img/Técnica%20sem%20Fronteiras%20LOGO%201%20(Traced).png' %}"
                             style="width: auto; height: 24px" /><svg
                             class="bi bi-bezier"
                             xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +96,7 @@
                             <a
                                 class="nav-link active"
                                 href="/eventos"
-                                style="color: #005236; font-weight: bold"
+                                style="color: #005236"
                                 >Eventos</a
                             >
                         </li>
@@ -137,29 +135,31 @@
                 </div>
             </div>
         </nav>
-        <div class="recovery-container">
-            <h2 class="text-center">Recover Password</h2>
-            <form method="post">
-                {% csrf_token %}
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input
-                        type="email"
-                        class="form-control"
-                        id="email"
-                        name="email"
-                        required
-                    />
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">
-                    Recover Password
-                </button>
-            </form>
-            <p class="text-center mt-3">
-                <a href="/login" style="color: #005236"
-                    >Remember your password? Log in</a
-                >
-            </p>
+        <div class="x">
+            <div class="register-container">
+                <h2 class="text-center">Recover Password</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input
+                            type="email"
+                            class="form-control"
+                            id="email"
+                            name="email"
+                            required
+                        />
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        Recover Password
+                    </button>
+                </form>
+                <p class="text-center mt-3">
+                    <a href="/login" style="color: #005236"
+                        >Remember your password? Log in</a
+                    >
+                </p>
+            </div>
         </div>
         <script src="{% static 'js/bootstrap.min.js' %}"></script>
     </body>
